@@ -111,41 +111,41 @@ nav ul.nav-links li a:hover {
 }
 
 /* ===================
- Home Section Styles (UPDATED AGAIN)
+ Home Section Styles (Refined)
 =================== */
 
 .home-section {
-display: flex; /* Keep it as flex container for desktop */
+display: flex;
 justify-content: space-between;
-align-items: center; /* Vertically center items */
+align-items: center;
 max-width: 900px;
 margin: 0 auto;
-min-height: calc(100vh - 60px); /* Full height minus nav */
+min-height: calc(100vh - 60px);
 padding: 40px 20px;
-position: relative; /* Needed for positioning the image later */
-overflow: hidden; /* Hide anything outside */
+position: relative;
+overflow: hidden;
 }
 
-/* Left side container (UPDATED) */
+/* Left side container (Remain unchanged) */
 .home-left {
-flex: 1; /* Allow left side to take primary space */
+flex: 1;
 display: flex;
-flex-direction: column; /* Stack contents vertically */
-justify-content: center; /* Center content vertically */
-align-items: flex-start; /* Align text and buttons to the left */
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
 min-width: 280px;
-padding-right: 20px; /* Space between text and image */
-z-index: 1; /* Ensure text is above image if they overlap */
+padding-right: 20px;
+z-index: 1;
 }
 
-/* Heading */
+/* Heading (Remain unchanged) */
 .home-left h1 {
 font-size: 3.5rem;
 margin-bottom: 20px;
 line-height: 1.2;
 }
 
-/* CV download button */
+/* CV download button (Remain unchanged) */
 .home-left .btn {
 background: #333;
 color: white;
@@ -162,15 +162,15 @@ margin-bottom: 25px;
 background: #005582;
 }
 
-/* Social links container - vertical stack (UPDATED) */
+/* Social links container - vertical stack (Remain unchanged) */
 .social-links {
 display: flex;
-flex-direction: column; /* Keep social links stacked vertically on desktop and mobile */
+flex-direction: column;
 gap: 15px;
 margin-top: 20px;
 }
 
-/* Social icons */
+/* Social icons (Remain unchanged) */
 .social-links a {
 font-size: 28px;
 color: #333;
@@ -182,48 +182,48 @@ transition: color 0.3s ease;
 color: #005583;
 }
 
-/* Right side container (UPDATED for floating image) */
+/* Right side container (Refined for floating image) */
 .home-right {
-position: absolute; /* Position the image independently */
-right: 0; /* Align to the right of the home-section */
-bottom: 0; /* Align to the bottom of the home-section */
-width: 40%; /* Adjust as needed for desktop size */
-max-width: 400px; /* Max size for desktop image */
-transform: translateY(0); /* Reset transform for desktop */
+position: absolute;
+right: 0;
+bottom: 0;
+width: 40%;
+max-width: 400px;
 display: flex;
-justify-content: flex-end; /* Push image to the right within its container */
-align-items: flex-end; /* Align image to the bottom within its container */
+justify-content: flex-end;
+align-items: flex-end;
 }
 
-/* Profile image */
+/* Profile image (Remain unchanged) */
 .home-right img {
 max-width: 100%;
 height: auto;
 border-radius: 10px;
-object-fit: contain; /* Use 'contain' to ensure the full image is visible, or 'cover' if you prefer cropping */
+object-fit: contain;
 box-shadow: 0 8px 16px rgba(0,0,0,0.1);
 }
 
 /* ===================
- Home Section Responsive Styles (UPDATED AGAIN)
+ Home Section Responsive Styles (Refined)
 =================== */
 @media (max-width: 768px) {
   .home-section {
-      flex-direction: column; /* Stack contents for smaller screens */
-      align-items: flex-start; /* Align left-aligned content to the left */
+      flex-direction: column;
+      align-items: flex-start;
       padding: 40px 20px;
-      min-height: auto; /* Allow height to adjust */
-      height: auto; /* Ensure it doesn't take full height if content is shorter */
-      padding-bottom: 180px; /* Add padding at the bottom to ensure space for the image */
-      overflow: hidden; /* Important for absolute positioning */
+      min-height: auto;
+      height: auto;
+      /* Adjusted padding bottom to ensure space for the image */
+      padding-bottom: 200px; /* Increased padding to allow more space for image above 'About Me' */
+      overflow: hidden;
   }
 
   .home-left {
-      width: 100%; /* Take full width */
+      width: 100%;
       padding-right: 0;
-      margin-bottom: 20px; /* Space between text/buttons and social icons */
-      align-items: flex-start; /* Keep text/button left aligned */
-      text-align: left; /* Keep text left aligned */
+      margin-bottom: 20px;
+      align-items: flex-start;
+      text-align: left;
   }
 
   .home-left h1 {
@@ -236,32 +236,38 @@ box-shadow: 0 8px 16px rgba(0,0,0,0.1);
   }
 
   .social-links {
-      flex-direction: column; /* Keep social links stacked vertically as per reference image */
-      align-items: flex-start; /* Align social icons to the left */
+      flex-direction: column;
+      align-items: flex-start;
       gap: 15px;
-      margin-top: 15px; /* Adjust spacing */
+      margin-top: 15px;
   }
 
   .home-right {
-      position: absolute; /* Still absolute */
-      bottom: 0; /* Keep at bottom */
-      right: -20px; /* Adjust right position for a slight overlap/float */
-      width: 60%; /* Adjust width for mobile */
-      max-width: 250px; /* Limit max size */
-      transform: translateY(20%); /* Push image slightly down to float */
-      z-index: 0; /* Keep image behind text */
-      justify-content: flex-end; /* Keep image pushed to the right */
-      align-items: flex-end; /* Keep image pushed to the bottom */
+      position: absolute;
+      bottom: 0; /* Keep at the bottom of the home-section */
+      right: 20px; /* Keep it inside the viewport, adjust as needed */
+      width: 45%; /* Make it slightly smaller to fit better */
+      max-width: 200px; /* Control its max size */
+      /* This is the key adjustment: bring the image up higher */
+      transform: translateY(-20%); /* Move it up by 20% of its own height */
+      z-index: 0;
+      justify-content: flex-end;
+      align-items: flex-end;
   }
 
   .home-right img {
-      max-height: 200px; /* Max height for mobile image */
+      max-height: 180px; /* Adjust max height for mobile image to fit */
+      border-radius: 50%; /* Make it circular like in your reference image */
+      object-fit: cover; /* Use cover for circular images */
+      width: 100%; /* Ensure circular image fills its container */
+      height: 100%; /* Ensure circular image fills its container */
+      aspect-ratio: 1/1; /* Ensure it's perfectly circular */
   }
 }
 
 @media (max-width: 480px) {
   .home-section {
-      padding-bottom: 150px; /* Adjust padding for smaller image */
+      padding-bottom: 180px; /* Further adjust padding for smaller screens */
   }
 
   .home-left h1 {
@@ -269,17 +275,17 @@ box-shadow: 0 8px 16px rgba(0,0,0,0.1);
   }
 
   .social-links {
-      gap: 10px; /* Tighter spacing for very small screens */
+      gap: 10px;
   }
 
   .home-right {
-      width: 70%; /* Adjust width for very small screens */
-      max-width: 180px; /* Smaller max-width for image */
-      right: -10px; /* Fine-tune position */
-      transform: translateY(15%); /* Adjust float slightly */
+      width: 55%; /* Adjust width for very small screens */
+      max-width: 150px; /* Smaller max-width for image */
+      right: 10px; /* Fine-tune position */
+      transform: translateY(-15%); /* Adjust float slightly up */
   }
   .home-right img {
-      max-height: 150px; /* Smaller max-height for image */
+      max-height: 140px; /* Smaller max-height for image */
   }
 }
 
