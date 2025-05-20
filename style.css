@@ -10,7 +10,6 @@
 }
 
 body {
-  background: #c89191;
   color: #333;
   line-height: 1.6;
   scroll-behavior: smooth;
@@ -111,111 +110,110 @@ nav ul.nav-links li a:hover {
 }
 
 /* ===================
- Home Section Styles (Refined)
+ Home Section Styles (UPDATED FOR IMAGE POSITIONING)
 =================== */
 
 .home-section {
-display: flex;
-justify-content: space-between;
-align-items: center;
-max-width: 900px;
-margin: 0 auto;
-min-height: calc(100vh - 60px);
-padding: 40px 20px;
-position: relative;
-overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Vertically center the flex items */
+  max-width: 900px;
+  margin: 0 auto;
+  min-height: calc(100vh - 60px);
+  padding: 40px 20px;
+  position: relative; /* Keep relative for potential absolute positioning on mobile */
+  overflow: hidden; /* To prevent image overflow issues */
 }
 
 /* Left side container (Remain unchanged) */
 .home-left {
-flex: 1;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: flex-start;
-min-width: 280px;
-padding-right: 20px;
-z-index: 1;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  min-width: 280px;
+  padding-right: 20px;
+  z-index: 1; /* Ensure text is above image if they overlap */
 }
 
 /* Heading (Remain unchanged) */
 .home-left h1 {
-font-size: 3.5rem;
-margin-bottom: 20px;
-line-height: 1.2;
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+  line-height: 1.2;
 }
 
 /* CV download button (Remain unchanged) */
 .home-left .btn {
-background: #333;
-color: white;
-padding: 12px 28px;
-font-weight: 600;
-border-radius: 5px;
-text-decoration: none;
-width: fit-content;
-transition: background 0.3s ease;
-margin-bottom: 25px;
+  background: #333;
+  color: white;
+  padding: 12px 28px;
+  font-weight: 600;
+  border-radius: 5px;
+  text-decoration: none;
+  width: fit-content;
+  transition: background 0.3s ease;
+  margin-bottom: 25px;
 }
 
 .home-left .btn:hover {
-background: #005582;
+  background: #005582;
 }
 
 /* Social links container - vertical stack (Remain unchanged) */
 .social-links {
-display: flex;
-flex-direction: column;
-gap: 15px;
-margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
 }
 
 /* Social icons (Remain unchanged) */
 .social-links a {
-font-size: 28px;
-color: #333;
-text-decoration: none;
-transition: color 0.3s ease;
+  font-size: 28px;
+  color: #333;
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 .social-links a:hover {
-color: #005583;
+  color: #005583;
 }
 
-/* Right side container (Refined for floating image) */
+/* Right side container (UPDATED FOR DESKTOP & IMAGE CENTERING) */
 .home-right {
-position: absolute;
-right: 0;
-bottom: 0;
-width: 40%;
-max-width: 400px;
-display: flex;
-justify-content: flex-end;
-align-items: flex-end;
+  flex: 1; /* Allow it to take up space in the flex container */
+  display: flex;
+  justify-content: center; /* Center horizontally within its space */
+  align-items: center; /* Center vertically within its space */
+  padding-left: 20px; /* Add padding from the left content */
+  min-width: 250px; /* Ensure a minimum size */
+  max-width: 400px; /* Prevent it from getting too big */
+  position: relative; /* Remove absolute positioning for desktop */
 }
 
-/* Profile image (Remain unchanged) */
+/* Profile image (Updated for circularity and positioning) */
 .home-right img {
-max-width: 100%;
-height: auto;
-border-radius: 10px;
-object-fit: contain;
-box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  max-width: 100%;
+  height: auto;
+  border-radius: 2%; /* Make it circular */
+  object-fit: cover; /* Crop to fill the circle */
+  aspect-ratio: 1 / 1; /* Ensures perfect circle by setting aspect ratio */
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
 }
 
 /* ===================
- Home Section Responsive Styles (Refined)
+ Home Section Responsive Styles (UPDATED FOR MOBILE IMAGE POSITIONING)
 =================== */
 @media (max-width: 768px) {
   .home-section {
-      flex-direction: column;
-      align-items: flex-start;
+      flex-direction: column; /* Stack for mobile */
+      align-items: flex-start; /* Left-align content */
       padding: 40px 20px;
       min-height: auto;
       height: auto;
-      /* Adjusted padding bottom to ensure space for the image */
-      padding-bottom: 200px; /* Increased padding to allow more space for image above 'About Me' */
-      overflow: hidden;
+      padding-bottom: 200px; /* Increased padding bottom to allow space for floating image */
   }
 
   .home-left {
@@ -243,31 +241,26 @@ box-shadow: 0 8px 16px rgba(0,0,0,0.1);
   }
 
   .home-right {
-      position: absolute;
-      bottom: 0; /* Keep at the bottom of the home-section */
-      right: 20px; /* Keep it inside the viewport, adjust as needed */
-      width: 45%; /* Make it slightly smaller to fit better */
-      max-width: 200px; /* Control its max size */
-      /* This is the key adjustment: bring the image up higher */
-      transform: translateY(-20%); /* Move it up by 20% of its own height */
-      z-index: 0;
-      justify-content: flex-end;
-      align-items: flex-end;
+      position: absolute; /* Re-apply absolute positioning for mobile */
+      bottom: 0; /* Align to the bottom of home-section */
+      right: 20px; /* Position from the right edge */
+      width: 45%; /* Size on mobile */
+      max-width: 180px; /* Max size on mobile */
+      transform: translateY(-50%); /* Crucial: Translate up by 50% of its own height to center it vertically relative to its bottom anchor */
+      z-index: 0; /* Ensure image is behind text */
+      /* No need for justify-content/align-items here if image fills home-right */
   }
 
   .home-right img {
-      max-height: 180px; /* Adjust max height for mobile image to fit */
-      border-radius: 50%; /* Make it circular like in your reference image */
-      object-fit: cover; /* Use cover for circular images */
-      width: 100%; /* Ensure circular image fills its container */
-      height: 100%; /* Ensure circular image fills its container */
-      aspect-ratio: 1/1; /* Ensure it's perfectly circular */
+      /* Styles already set in desktop .home-right img will apply,
+         but ensure max-height is controlled if needed for aspect ratio */
+      max-height: 180px; /* Ensures image doesn't get too tall */
   }
 }
 
 @media (max-width: 480px) {
   .home-section {
-      padding-bottom: 180px; /* Further adjust padding for smaller screens */
+      padding-bottom: 160px; /* Adjust for smaller screens */
   }
 
   .home-left h1 {
@@ -280,12 +273,12 @@ box-shadow: 0 8px 16px rgba(0,0,0,0.1);
 
   .home-right {
       width: 55%; /* Adjust width for very small screens */
-      max-width: 150px; /* Smaller max-width for image */
-      right: 10px; /* Fine-tune position */
-      transform: translateY(-15%); /* Adjust float slightly up */
+      max-width: 130px; /* Smaller max-width for image */
+      right: 15px; /* Fine-tune position for smaller screens */
+      transform: translateY(-40%); /* Adjust float slightly up for very small screens */
   }
   .home-right img {
-      max-height: 140px; /* Smaller max-height for image */
+      max-height: 120px; /* Smaller max-height for image */
   }
 }
 
