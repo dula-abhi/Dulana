@@ -42,7 +42,7 @@ window.addEventListener('scroll', animateSkillsOnScroll);
 
 
 // contactc //
-const contactSection = document.querySelector('.contact-section');
+const contactSection = document.querySelector('.contact'); // Changed selector to .contact
 
 function animateContactOnScroll() {
   if (isInViewport(contactSection)) {

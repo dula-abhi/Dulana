@@ -3,583 +3,610 @@
 =================== */
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
-  
-  body {
-    background: #f9f9f9;
-    color: #333;
-    line-height: 1.6;
-    scroll-behavior: smooth;
-  }
-  
-  /* ===================
-     Navigation Bar
-  =================== */
-  
-  nav {
-    background: #333;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-  }
-  
-  .nav-container {
-    max-width: 900px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    padding: 0 20px;
-    height: 60px;
-    justify-content: space-between;
-  }
-  
-  .logo {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: white;
-  }
-  
-  nav ul.nav-links {
-    display: flex;
-    list-style: none;
-    gap: 25px;
-  }
-  
-  nav ul.nav-links li a {
-    color: white;
-    text-decoration: none;
-    font-weight: 600;
-    padding: 8px 12px;
-    transition: background 0.3s ease;
-  }
-  
-  nav ul.nav-links li a:hover {
-    background: #555;
-    border-radius: 4px;
-  }
-  
-  /* Hamburger Menu */
-  
-  .hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    gap: 5px;
-  }
-  
-  .hamburger span {
-    width: 25px;
-    height: 3px;
-    background: white;
-    border-radius: 2px;
-  }
-  
-  /* Responsive nav */
-  
-  @media (max-width: 768px) {
-    nav ul.nav-links {
-      position: fixed;
-      top: 60px;
-      right: 0;
-      background: #333;
-      height: calc(100vh - 60px);
-      width: 200px;
-      flex-direction: column;
-      align-items: flex-start;
-      padding: 20px;
-      transform: translateX(100%);
-      transition: transform 0.3s ease-in-out;
-      gap: 20px;
-      z-index: 999;
-    }
-  
-    nav ul.nav-links.open {
-      transform: translateX(0);
-    }
-  
-    nav ul.nav-links li a {
-      width: 100%;
-    }
-  
-    .hamburger {
-      display: flex;
-    }
-  }
-  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Crucial for responsive design */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
 
 /* ===================
-   Home Section Styles
+   Navigation Bar
+=================== */
+
+nav {
+  background: #333;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-container {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  height: 60px;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: white;
+}
+
+nav ul.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+}
+
+nav ul.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 8px 12px;
+  transition: background 0.3s ease;
+}
+
+nav ul.nav-links li a:hover {
+  background: #555;
+  border-radius: 4px;
+}
+
+/* Hamburger Menu */
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: white;
+  border-radius: 2px;
+}
+
+/* Responsive nav */
+
+@media (max-width: 768px) {
+  nav ul.nav-links {
+    position: fixed;
+    top: 60px;
+    right: 0;
+    background: #333;
+    height: calc(100vh - 60px);
+    width: 200px;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    gap: 20px;
+    z-index: 999;
+  }
+
+  nav ul.nav-links.open {
+    transform: translateX(0);
+  }
+
+  nav ul.nav-links li a {
+    width: 100%;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+}
+
+
+/* ===================
+ Home Section Styles
 =================== */
 
 .home-section {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  max-width: 900px;
-  margin: 0 auto;
-  height: 100vh;
-  padding: 20px;
-  gap: 20px;
+display: flex;
+justify-content: space-between;
+align-items: flex-start;
+max-width: 900px;
+margin: 0 auto;
+height: 100vh; /* Adjust as needed, 'auto' might be better for very small screens */
+padding: 20px;
+gap: 20px;
+flex-wrap: wrap; /* Allow content to wrap */
 }
 
 /* Left side container */
 .home-left {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
+flex: 1;
+display: flex;
+flex-direction: column;
+min-width: 280px; /* Ensure content doesn't get too squished */
 }
 
 /* Heading */
 .home-left h1 {
-  font-size: 3.5rem;
-  margin-bottom: 20px;
+font-size: 3.5rem;
+margin-bottom: 20px;
 }
 
 /* CV download button */
 .home-left .btn {
-  background: #333;
-  color: white;
-  padding: 12px 28px;
-  font-weight: 600;
-  border-radius: 5px;
-  text-decoration: none;
-  width: fit-content;
-  transition: background 0.3s ease;
-  margin-bottom: 25px;
+background: #333;
+color: white;
+padding: 12px 28px;
+font-weight: 600;
+border-radius: 5px;
+text-decoration: none;
+width: fit-content;
+transition: background 0.3s ease;
+margin-bottom: 25px;
 }
 
 .home-left .btn:hover {
-  background: #005582;
+background: #005582;
 }
 
 /* Social links container - vertical stack */
 .social-links {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+display: flex;
+flex-direction: column;
+gap: 15px;
 }
 
 /* Social icons */
 .social-links a {
-  font-size: 28px;
-  color: #333;
-  text-decoration: none;
-  transition: color 0.3s ease;
+font-size: 28px;
+color: #333;
+text-decoration: none;
+transition: color 0.3s ease;
 }
 
 .social-links a:hover {
-  color: #005583;
+color: #005583;
 }
 
 /* Right side container */
 .home-right {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+flex: 1;
+display: flex;
+justify-content: center;
+align-items: center;
+min-width: 280px; /* Ensure image section has a minimum width */
 }
 
 /* Profile image */
 .home-right img {
-  max-width: 100%;
-  max-height: 80vh;
-  border-radius: 10px;
-  object-fit: cover;
+max-width: 100%;
+height: auto; /* Changed from max-height to auto for better scaling */
+border-radius: 10px;
+object-fit: cover;
 }
 
 /* ===================
-   Responsive Styles
+ Home Section Responsive Styles
 =================== */
 @media (max-width: 768px) {
-  .home-section {
-    flex-direction: column;
-    height: auto;
-    max-width: 100%;
-    padding: 20px;
-  }
+.home-section {
+  flex-direction: column;
+  height: auto; /* Allow height to adjust */
+  padding: 40px 20px; /* Add more padding for smaller screens */
+  align-items: center; /* Center items when stacked */
+}
 
-  .home-left {
-    width: 60%;
-    margin-bottom: 20px;
-  }
+.home-left {
+  width: 100%; /* Take full width on smaller screens */
+  margin-bottom: 30px;
+  align-items: center; /* Center content in left section */
+  text-align: center; /* Center text */
+}
 
+.home-left h1 {
+  font-size: 2.8rem; /* Adjust font size for smaller screens */
+}
+
+.social-links {
+  flex-direction: row; /* Display social links horizontally */
+  justify-content: center; /* Center social links */
+  gap: 25px; /* Increase gap between icons */
+  margin-top: 20px;
+}
+
+.home-right {
+  width: 60%; /* Adjust image width for better presentation */
+  max-width: 250px; /* Limit image size on smaller screens */
+  margin: 0 auto; /* Center image */
+}
+
+.home-right img {
+  max-height: 200px; /* Adjust max height for mobile */
+  border-radius: 8px;
+}
+}
+
+@media (max-width: 480px) {
   .home-left h1 {
-    font-size: 2.5rem;
-  }
-
-  .social-links {
-    flex-direction: row;
-    justify-content: flex-start;
-    gap: 15px;
+      font-size: 2.2rem; /* Further reduce font size for very small screens */
   }
 
   .home-right {
-    width: 40%;
-    margin: 0 auto;
-  }
-
-  .home-right img {
-    max-height: 150px;
-    border-radius: 8px;
+      width: 80%; /* Make image larger on very small screens */
+      max-width: 200px; /* Adjust max-width */
   }
 }
 
-  /* ===================
-     About Section
-  =================== */
-  
-  .about-section {
-    max-width: 900px;
-    margin: 60px auto;
-    padding: 0 20px;
-  }
-  
-  .about-section h2 {
-    font-size: 2.8rem;
-    text-align: center;
-    margin-bottom: 40px;
-  }
-  
-  .about-container {
-    display: flex;
-    gap: 40px;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-  
-  .profile-pic {
-    flex: 1 1 250px;
-    max-width: 250px;
-    border-radius: 10px;
-    object-fit: cover;
-    box-shadow: 0 4px 8px rgb(0 0 0 / 0.1);
-  }
-  
-  .about-text {
-    flex: 2 1 400px;
-  }
-  
-  .about-text p {
-    font-size: 1.1rem;
-    margin-bottom: 20px;
-    color: #444;
-  }
-  
-  .about-text .btn {
-    background: #0077b5;
-    color: white;
-    padding: 10px 24px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: background 0.3s ease;
-    display: inline-block;
-    margin-bottom: 20px;
-  }
-  
-  .about-text .btn:hover {
-    background: #005582;
-  }
-  
-  .about-text .social-links {
-    display: flex;
-    gap: 20px;
-    font-size: 1.6rem;
-  }
-  
-  .about-text .social-links a {
-    color: #0077b5;
-    transition: color 0.3s ease;
-  }
-  
-  .about-text .social-links a:hover {
-    color: #005582;
-  }
-  
-  /* ===================
-     Skills Section
-  =================== */
-  .skills-section {
-  padding: 60px 20px;
-  background-color: #fff;
-  max-width: 1100px;
-  margin: auto;
+
+/* ===================
+   About Section
+=================== */
+
+.about-section {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+.about-section h2 {
+  font-size: 2.8rem;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.about-container {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  justify-content: center; /* Center items when wrapped */
+}
+
+.profile-pic {
+  flex: 1 1 250px; /* Allow image to grow/shrink, with a base of 250px */
+  max-width: 250px;
+  height: auto; /* Ensure image scales proportionally */
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgb(0 0 0 / 0.1);
+}
+
+.about-text {
+  flex: 2 1 400px; /* Allow text to grow/shrink, with a base of 400px */
+}
+
+.about-text p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  color: #444;
+}
+
+.about-text .btn {
+  background: #0077b5;
+  color: white;
+  padding: 10px 24px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s ease;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.about-text .btn:hover {
+  background: #005582;
+}
+
+.about-text .social-links {
+  display: flex;
+  gap: 20px;
+  font-size: 1.6rem;
+}
+
+.about-text .social-links a {
+  color: #0077b5;
+  transition: color 0.3s ease;
+}
+
+.about-text .social-links a:hover {
+  color: #005582;
+}
+
+/* ===================
+   Skills Section
+=================== */
+.skills-section {
+padding: 60px 20px;
+background-color: #fff;
+max-width: 1100px;
+margin: auto;
 }
 
 .section-title {
-  text-align: center;
-  font-size: 2.5rem;
-  color: #333;
-  margin-bottom: 50px;
-  position: relative;
+text-align: center;
+font-size: 2.5rem;
+color: #333;
+margin-bottom: 50px;
+position: relative;
 }
 
 .skills-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 40px;
-  justify-content: center;
+display: flex;
+flex-wrap: wrap; /* Allow skill categories to wrap */
+gap: 40px;
+justify-content: center; /* Center skill categories */
 }
 
 .skills-category {
-  flex: 1;
-  min-width: 300px;
+flex: 1;
+min-width: 300px; /* Ensure categories don't get too small */
+max-width: 450px; /* Limit max width for better readability */
 }
 
 .skills-category h3 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-  color: #111;
+font-size: 1.5rem;
+margin-bottom: 10px;
+color: #111;
 }
 
 .skills-category p {
-  font-size: 1rem;
-  margin-bottom: 25px;
-  color: #555;
+font-size: 1rem;
+margin-bottom: 25px;
+color: #555;
 }
 
 .skill-item {
-  margin-bottom: 25px;
+margin-bottom: 25px;
 }
 
 .skill-info {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-weight: 600;
-  margin-bottom: 6px;
-  color: #111;
+display: flex;
+justify-content: space-between;
+align-items: center;
+font-weight: 600;
+margin-bottom: 6px;
+color: #111;
 }
 
 .skill-info i {
-  margin-right: 8px;
-  color: #333;
+margin-right: 8px;
+color: #333;
 }
 
 .skill-info span:first-of-type {
-  flex-grow: 1;
-  display: flex;
-  align-items: center;
+flex-grow: 1;
+display: flex;
+align-items: center;
 }
 
 .skill-bar {
-  background: #e5e7eb;
-  border-radius: 10px;
-  height: 10px;
-  overflow: hidden;
+background: #e5e7eb;
+border-radius: 10px;
+height: 10px;
+overflow: hidden;
 }
 
 .skill-level {
-  height: 100%;
-  width: 0;
-  background: #3b82f6;
-  border-radius: 10px;
-  transition: width 1.5s ease-in-out;
+height: 100%;
+width: 0;
+background: #3b82f6;
+border-radius: 10px;
+transition: width 1.5s ease-in-out;
 }
 
-  
-  /* ===================
-     Certificates Section
-  =================== */
-  
-  .certificates-section {
-    max-width: 900px;
-    margin: 60px auto;
-    padding: 0 20px;
-  }
-  
-  .certificates-section h2 {
-    font-size: 2.8rem;
-    text-align: center;
-    margin-bottom: 40px;
-  }
-  
-  .certificates-list {
-    list-style: none;
-    max-width: 600px;
-    margin: 0 auto;
-    font-size: 1.1rem;
-    color: #555;
-  }
-  
-  .certificates-list li {
-    padding: 12px 0;
-    border-bottom: 1px solid #ccc;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .certificates-list li a {
-    text-decoration: none;
-    color: #333;
-    font-weight: 600;
-    transition: color 0.3s ease;
-  }
-  
-  .certificates-list li a:hover {
-    color: #005582;
-  }
-  
-  /* ===================
-     Projects Section
-  =================== */
-  
-  .projects-section {
-    max-width: 900px;
-    margin: 60px auto;
-    padding: 0 20px;
-  }
-  
-  .projects-section h2 {
-    font-size: 2.8rem;
-    text-align: center;
-    margin-bottom: 40px;
-  }
-  
-  .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-  
-  .project-card {
-    background: white;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgb(0 0 0 / 0.1);
-    transition: transform 0.3s ease;
-  }
-  
-  .project-card:hover {
-    transform: translateY(-8px);
-  }
-  
-  .project-card h3 {
-    margin-bottom: 15px;
-    color: #333;
-  }
-  
-  .project-card p {
-    font-size: 1rem;
-    margin-bottom: 20px;
-    color: #555;
-  }
-  
-  .project-card a {
-    text-decoration: none;
-    font-weight: 600;
-    color: #0077b5;
-    transition: color 0.3s ease;
-  }
-  
-  .project-card a:hover {
-    color: #005582;
-  }
-  
-  /* ===================
-     Contact Section
-  =================== */
-  
-  .contact-section {
-    max-width: 900px;
-    margin: 60px auto 80px;
-    padding: 0 20px;
-  }
-  
-  .contact-section h2 {
-    font-size: 2.8rem;
-    text-align: center;
-    margin-bottom: 40px;
-  }
-  
-  form {
-    max-width: 600px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  label {
-    font-weight: 600;
-    color: #333;
-  }
-  
-  input[type="text"],
-  input[type="email"],
-  textarea {
-    padding: 12px 15px;
-    font-size: 1rem;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    resize: vertical;
-    transition: border-color 0.3s ease;
-  }
-  
-  input[type="text"]:focus,
-  input[type="email"]:focus,
-  textarea:focus {
-    border-color: #0077b5;
-    outline: none;
-  }
-  
-  .contact__button {
-    background-color: #333;
-    color: rgb(255, 255, 255);
-    padding: 12px 25px;
-    font-size: var(--normal-font-size);
-    font-weight: var(--font-semi);
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    flex: 0 1 auto;
-    margin: 10px;
-  }
-  
-  button[type="submit"]:hover {
-    background: #005582;
-  }
 
-  button[type="reset"]:hover {
-    background: #005582;
-  }
+/* ===================
+   Certificates Section
+=================== */
+/* This section is commented out in HTML, so its CSS is also commented out */
+/*
+.certificates-section {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
 
-  /* Contact section fade-in initial state */
-.contact-section {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-  }
-  
-  /* When visible, fade in */
-  .contact-section.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  
-  
-  /* ===================
-     Footer
-  =================== */
-  
-  footer {
-    background: #222;
-    color: white;
-    text-align: center;
-    padding: 20px 0;
-    font-size: 0.9rem;
-  }
-  
-  /* ===================
-     Animate skill bars on load
-  =================== */
-  
+.certificates-section h2 {
+  font-size: 2.8rem;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.certificates-list {
+  list-style: none;
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.certificates-list li {
+  padding: 12px 0;
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.certificates-list li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.certificates-list li a:hover {
+  color: #005582;
+}
+*/
+
+/* ===================
+   Projects Section
+=================== */
+
+.projects-section {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+.projects-section h2 {
+  font-size: 2.8rem;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.projects-grid {
+  display: grid;
+  /* Responsive grid: auto-fit creates as many columns as can fit, minmax sets min/max width */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+  gap: 30px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.project-card {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgb(0 0 0 / 0.1);
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+}
+
+.project-card h3 {
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.project-card p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.project-card a {
+  text-decoration: none;
+  font-weight: 600;
+  color: #0077b5;
+  transition: color 0.3s ease;
+}
+
+.project-card a:hover {
+  color: #005582;
+}
+
+/* ===================
+   Contact Section
+=================== */
+
+.contact { /* Renamed from contact-section to match HTML */
+  max-width: 900px;
+  margin: 60px auto 80px;
+  padding: 0 20px;
+}
+
+.contact h2 { /* Targeting h2 within .contact */
+  font-size: 2.8rem;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.contact__container {
+  display: flex;
+  justify-content: center;
+}
+
+form {
+  max-width: 600px;
+  width: 100%; /* Ensure form takes full width available */
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+label {
+  font-weight: 600;
+  color: #333;
+}
+
+.contact__input { /* Renamed to match HTML class */
+  padding: 12px 15px;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  resize: vertical;
+  transition: border-color 0.3s ease;
+  width: 100%; /* Ensure inputs take full width */
+}
+
+.contact__input:focus {
+  border-color: #0077b5;
+  outline: none;
+}
+
+.buttons-container {
+  display: flex;
+  flex-wrap: wrap; /* Allow buttons to wrap */
+  justify-content: center; /* Center buttons */
+  gap: 15px; /* Space between buttons */
+}
+
+.contact__button {
+  background-color: #333;
+  color: rgb(255, 255, 255);
+  padding: 12px 25px;
+  font-size: 1rem; /* Use rem for better scaling */
+  font-weight: 600; /* Adjusted from var(--font-semi) */
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  flex: 1 1 auto; /* Allow buttons to grow/shrink */
+  min-width: 140px; /* Minimum width for buttons */
+  margin: 0; /* Remove individual margins, use gap on container */
+}
+
+.contact__button:hover { /* Combined hover styles */
+  background: #005582;
+}
+
+/* Contact section fade-in initial state */
+.contact { /* Renamed to match HTML ID/class */
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* When visible, fade in */
+.contact.visible { /* Renamed to match HTML ID/class */
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* ===================
+   Footer
+=================== */
+
+footer {
+  background: #222;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 0.9rem;
+}
