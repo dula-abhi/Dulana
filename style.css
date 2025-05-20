@@ -1,11 +1,11 @@
 /* ===================
-   Global Styles
+   Global Styles (Remain unchanged)
 =================== */
 
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; /* Crucial for responsive design */
+  box-sizing: border-box;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -17,7 +17,7 @@ body {
 }
 
 /* ===================
-   Navigation Bar
+ Navigation Bar (Remain unchanged)
 =================== */
 
 nav {
@@ -62,7 +62,7 @@ nav ul.nav-links li a:hover {
   border-radius: 4px;
 }
 
-/* Hamburger Menu */
+/* Hamburger Menu (Remain unchanged) */
 
 .hamburger {
   display: none;
@@ -78,7 +78,7 @@ nav ul.nav-links li a:hover {
   border-radius: 2px;
 }
 
-/* Responsive nav */
+/* Responsive nav (Remain unchanged) */
 
 @media (max-width: 768px) {
   nav ul.nav-links {
@@ -110,35 +110,38 @@ nav ul.nav-links li a:hover {
   }
 }
 
-
 /* ===================
- Home Section Styles
+ Home Section Styles (UPDATED)
 =================== */
 
 .home-section {
 display: flex;
 justify-content: space-between;
-align-items: flex-start;
+align-items: center; /* Align items to center vertically */
 max-width: 900px;
 margin: 0 auto;
-height: 100vh; /* Adjust as needed, 'auto' might be better for very small screens */
-padding: 20px;
+min-height: calc(100vh - 60px); /* Adjust height to fill viewport below nav */
+padding: 40px 20px; /* Add more padding */
 gap: 20px;
-flex-wrap: wrap; /* Allow content to wrap */
+flex-wrap: wrap; /* Allow wrapping on smaller screens if needed */
 }
 
 /* Left side container */
 .home-left {
-flex: 1;
+flex: 1; /* Allow left side to take available space */
 display: flex;
 flex-direction: column;
+justify-content: center; /* Center content vertically */
+align-items: flex-start; /* Align text and buttons to the left */
 min-width: 280px; /* Ensure content doesn't get too squished */
+padding-right: 20px; /* Add some space between text and image */
 }
 
 /* Heading */
 .home-left h1 {
 font-size: 3.5rem;
 margin-bottom: 20px;
+line-height: 1.2; /* Adjust line height for better readability */
 }
 
 /* CV download button */
@@ -149,20 +152,21 @@ padding: 12px 28px;
 font-weight: 600;
 border-radius: 5px;
 text-decoration: none;
-width: fit-content;
+width: fit-content; /* Make button only as wide as its content */
 transition: background 0.3s ease;
-margin-bottom: 25px;
+margin-bottom: 25px; /* Space below the button */
 }
 
 .home-left .btn:hover {
 background: #005582;
 }
 
-/* Social links container - vertical stack */
+/* Social links container - vertical stack (UPDATED) */
 .social-links {
 display: flex;
-flex-direction: column;
+flex-direction: column; /* Keep social links stacked vertically */
 gap: 15px;
+margin-top: 20px; /* Space above social links */
 }
 
 /* Social icons */
@@ -179,76 +183,88 @@ color: #005583;
 
 /* Right side container */
 .home-right {
-flex: 1;
+flex: 1; /* Allow right side to take available space */
 display: flex;
-justify-content: center;
-align-items: center;
-min-width: 280px; /* Ensure image section has a minimum width */
+justify-content: center; /* Center image horizontally */
+align-items: center; /* Center image vertically */
+min-width: 250px; /* Ensure image section has a minimum width */
 }
 
 /* Profile image */
 .home-right img {
 max-width: 100%;
-height: auto; /* Changed from max-height to auto for better scaling */
+height: auto;
 border-radius: 10px;
 object-fit: cover;
+box-shadow: 0 8px 16px rgba(0,0,0,0.1); /* Add a subtle shadow */
 }
 
 /* ===================
- Home Section Responsive Styles
+ Home Section Responsive Styles (UPDATED)
 =================== */
 @media (max-width: 768px) {
-.home-section {
-  flex-direction: column;
-  height: auto; /* Allow height to adjust */
-  padding: 40px 20px; /* Add more padding for smaller screens */
-  align-items: center; /* Center items when stacked */
-}
+  .home-section {
+      flex-direction: column; /* Stack left and right sections vertically */
+      align-items: center; /* Center content when stacked */
+      padding: 40px 20px;
+      min-height: auto; /* Allow height to collapse */
+  }
 
-.home-left {
-  width: 100%; /* Take full width on smaller screens */
-  margin-bottom: 30px;
-  align-items: center; /* Center content in left section */
-  text-align: center; /* Center text */
-}
+  .home-left {
+      width: 100%;
+      padding-right: 0; /* Remove padding */
+      margin-bottom: 40px; /* Space between left and right sections */
+      align-items: center; /* Center the text, button, and social links */
+      text-align: center; /* Center align text */
+  }
 
-.home-left h1 {
-  font-size: 2.8rem; /* Adjust font size for smaller screens */
-}
+  .home-left h1 {
+      font-size: 2.5rem; /* Adjust font size for smaller screens */
+      margin-bottom: 15px;
+  }
 
-.social-links {
-  flex-direction: row; /* Display social links horizontally */
-  justify-content: center; /* Center social links */
-  gap: 25px; /* Increase gap between icons */
-  margin-top: 20px;
-}
+  .home-left .btn {
+      margin-bottom: 20px; /* Adjust button margin */
+  }
 
-.home-right {
-  width: 60%; /* Adjust image width for better presentation */
-  max-width: 250px; /* Limit image size on smaller screens */
-  margin: 0 auto; /* Center image */
-}
+  .social-links {
+      flex-direction: row; /* Display social links horizontally when stacked */
+      justify-content: center; /* Center social links */
+      gap: 20px;
+      margin-top: 15px;
+  }
 
-.home-right img {
-  max-height: 200px; /* Adjust max height for mobile */
-  border-radius: 8px;
-}
+  .home-right {
+      width: 60%; /* Adjust image width to be prominent */
+      max-width: 300px; /* Max width for the image */
+      margin: 0 auto; /* Center image */
+  }
+
+  .home-right img {
+      max-height: 250px; /* Ensure image doesn't get too tall */
+  }
 }
 
 @media (max-width: 480px) {
   .home-left h1 {
-      font-size: 2.2rem; /* Further reduce font size for very small screens */
+      font-size: 2rem; /* Further reduce font size for very small screens */
+  }
+
+  .social-links {
+      gap: 15px; /* Reduce gap on very small screens */
   }
 
   .home-right {
       width: 80%; /* Make image larger on very small screens */
-      max-width: 200px; /* Adjust max-width */
+      max-width: 200px; /* Smaller max-width for image */
+  }
+  .home-right img {
+      max-height: 180px; /* Smaller max-height for image */
   }
 }
 
-
 /* ===================
-   About Section
+ About Section (Remain unchanged)
 =================== */
 
 .about-section {
@@ -267,21 +283,21 @@ object-fit: cover;
   display: flex;
   gap: 40px;
   align-items: center;
-  flex-wrap: wrap; /* Allow wrapping on smaller screens */
-  justify-content: center; /* Center items when wrapped */
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .profile-pic {
-  flex: 1 1 250px; /* Allow image to grow/shrink, with a base of 250px */
+  flex: 1 1 250px;
   max-width: 250px;
-  height: auto; /* Ensure image scales proportionally */
+  height: auto;
   border-radius: 10px;
   object-fit: cover;
   box-shadow: 0 4px 8px rgb(0 0 0 / 0.1);
 }
 
 .about-text {
-  flex: 2 1 400px; /* Allow text to grow/shrink, with a base of 400px */
+  flex: 2 1 400px;
 }
 
 .about-text p {
@@ -322,7 +338,7 @@ object-fit: cover;
 }
 
 /* ===================
-   Skills Section
+ Skills Section (Remain unchanged)
 =================== */
 .skills-section {
 padding: 60px 20px;
@@ -341,15 +357,15 @@ position: relative;
 
 .skills-wrapper {
 display: flex;
-flex-wrap: wrap; /* Allow skill categories to wrap */
+flex-wrap: wrap;
 gap: 40px;
-justify-content: center; /* Center skill categories */
+justify-content: center;
 }
 
 .skills-category {
 flex: 1;
-min-width: 300px; /* Ensure categories don't get too small */
-max-width: 450px; /* Limit max width for better readability */
+min-width: 300px;
+max-width: 450px;
 }
 
 .skills-category h3 {
@@ -405,7 +421,7 @@ transition: width 1.5s ease-in-out;
 
 
 /* ===================
-   Certificates Section
+   Certificates Section (Commented out)
 =================== */
 /* This section is commented out in HTML, so its CSS is also commented out */
 /*
@@ -450,7 +466,7 @@ transition: width 1.5s ease-in-out;
 */
 
 /* ===================
-   Projects Section
+   Projects Section (Remain unchanged)
 =================== */
 
 .projects-section {
@@ -467,7 +483,6 @@ transition: width 1.5s ease-in-out;
 
 .projects-grid {
   display: grid;
-  /* Responsive grid: auto-fit creates as many columns as can fit, minmax sets min/max width */
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
   gap: 30px;
   max-width: 900px;
@@ -509,16 +524,16 @@ transition: width 1.5s ease-in-out;
 }
 
 /* ===================
-   Contact Section
+   Contact Section (Remain unchanged)
 =================== */
 
-.contact { /* Renamed from contact-section to match HTML */
+.contact {
   max-width: 900px;
   margin: 60px auto 80px;
   padding: 0 20px;
 }
 
-.contact h2 { /* Targeting h2 within .contact */
+.contact h2 {
   font-size: 2.8rem;
   text-align: center;
   margin-bottom: 40px;
@@ -531,7 +546,7 @@ transition: width 1.5s ease-in-out;
 
 form {
   max-width: 600px;
-  width: 100%; /* Ensure form takes full width available */
+  width: 100%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -543,14 +558,14 @@ label {
   color: #333;
 }
 
-.contact__input { /* Renamed to match HTML class */
+.contact__input {
   padding: 12px 15px;
   font-size: 1rem;
   border-radius: 6px;
   border: 1px solid #ccc;
   resize: vertical;
   transition: border-color 0.3s ease;
-  width: 100%; /* Ensure inputs take full width */
+  width: 100%;
 }
 
 .contact__input:focus {
@@ -560,47 +575,47 @@ label {
 
 .buttons-container {
   display: flex;
-  flex-wrap: wrap; /* Allow buttons to wrap */
-  justify-content: center; /* Center buttons */
-  gap: 15px; /* Space between buttons */
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
 }
 
 .contact__button {
   background-color: #333;
   color: rgb(255, 255, 255);
   padding: 12px 25px;
-  font-size: 1rem; /* Use rem for better scaling */
-  font-weight: 600; /* Adjusted from var(--font-semi) */
+  font-size: 1rem;
+  font-weight: 600;
   border: none;
   border-radius: 10px;
   cursor: pointer;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
-  flex: 1 1 auto; /* Allow buttons to grow/shrink */
-  min-width: 140px; /* Minimum width for buttons */
-  margin: 0; /* Remove individual margins, use gap on container */
+  flex: 1 1 auto;
+  min-width: 140px;
+  margin: 0;
 }
 
-.contact__button:hover { /* Combined hover styles */
+.contact__button:hover {
   background: #005582;
 }
 
 /* Contact section fade-in initial state */
-.contact { /* Renamed to match HTML ID/class */
+.contact {
   opacity: 0;
   transform: translateY(50px);
   transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
 /* When visible, fade in */
-.contact.visible { /* Renamed to match HTML ID/class */
+.contact.visible {
   opacity: 1;
   transform: translateY(0);
 }
 
 
 /* ===================
-   Footer
+   Footer (Remain unchanged)
 =================== */
 
 footer {
