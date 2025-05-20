@@ -254,7 +254,7 @@ nav ul.nav-links li a:hover {
   .home-right img {
       /* Styles already set in desktop .home-right img will apply,
          but ensure max-height is controlled if needed for aspect ratio */
-      max-height: 180px; /* Ensures image doesn't get too tall */
+      max-height: 100%; /* Ensures image doesn't get too tall */
   }
 }
 
