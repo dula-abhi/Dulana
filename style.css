@@ -110,22 +110,21 @@ nav ul.nav-links li a:hover {
 }
 
 /* ===================
- Home Section Styles (UPDATED FOR IMAGE POSITIONING)
+ Home Section Styles
 =================== */
 
 .home-section {
   display: flex;
   justify-content: space-between;
-  align-items: center; /* Vertically center the flex items */
+  align-items: center;
   max-width: 900px;
   margin: 0 auto;
   min-height: calc(100vh - 60px);
   padding: 40px 20px;
-  position: relative; /* Keep relative for potential absolute positioning on mobile */
-  overflow: hidden; /* To prevent image overflow issues */
+  position: relative;
+  overflow: hidden;
 }
 
-/* Left side container (Remain unchanged) */
 .home-left {
   flex: 1;
   display: flex;
@@ -134,17 +133,15 @@ nav ul.nav-links li a:hover {
   align-items: flex-start;
   min-width: 280px;
   padding-right: 20px;
-  z-index: 1; /* Ensure text is above image if they overlap */
+  z-index: 1;
 }
 
-/* Heading (Remain unchanged) */
 .home-left h1 {
   font-size: 3.5rem;
   margin-bottom: 20px;
   line-height: 1.2;
 }
 
-/* CV download button (Remain unchanged) */
 .home-left .btn {
   background: #333;
   color: white;
@@ -161,7 +158,7 @@ nav ul.nav-links li a:hover {
   background: #005582;
 }
 
-/* Social links container - vertical stack (Remain unchanged) */
+/* Social links container (Desktop - always column) */
 .social-links {
   display: flex;
   flex-direction: column;
@@ -169,7 +166,6 @@ nav ul.nav-links li a:hover {
   margin-top: 20px;
 }
 
-/* Social icons (Remain unchanged) */
 .social-links a {
   font-size: 28px;
   color: #333;
@@ -181,30 +177,34 @@ nav ul.nav-links li a:hover {
   color: #005583;
 }
 
-/* Right side container (UPDATED FOR DESKTOP & IMAGE CENTERING) */
-.home-right {
-  flex: 1; /* Allow it to take up space in the flex container */
+/* Desktop Image container */
+.home-right-desktop {
+  flex: 1;
   display: flex;
-  justify-content: center; /* Center horizontally within its space */
-  align-items: center; /* Center vertically within its space */
-  padding-left: 20px; /* Add padding from the left content */
-  min-width: 250px; /* Ensure a minimum size */
-  max-width: 400px; /* Prevent it from getting too big */
-  position: relative; /* Remove absolute positioning for desktop */
+  justify-content: center;
+  align-items: center;
+  padding-left: 20px;
+  min-width: 250px;
+  max-width: 400px;
+  position: relative;
 }
 
-/* Profile image (Updated for circularity and positioning) */
-.home-right img {
+.home-right-desktop img {
   max-width: 100%;
   height: auto;
-  border-radius: 2%; /* Make it circular */
-  object-fit: cover; /* Crop to fill the circle */
-  aspect-ratio: 1 / 1; /* Ensures perfect circle by setting aspect ratio */
+  border-radius: 2%;
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
   box-shadow: 0 8px 16px rgba(0,0,0,0.1);
 }
 
+/* Mobile Image container - HIDDEN BY DEFAULT */
+.home-image-mobile {
+  display: none; /* Hide on desktop */
+}
+
 /* ===================
- Home Section Responsive Styles (UPDATED FOR MOBILE IMAGE POSITIONING)
+ Home Section Responsive Styles
 =================== */
 @media (max-width: 768px) {
   .home-section {
@@ -213,13 +213,13 @@ nav ul.nav-links li a:hover {
       padding: 40px 20px;
       min-height: auto;
       height: auto;
-      padding-bottom: 200px; /* Increased padding bottom to allow space for floating image */
+      padding-bottom: 40px; /* More padding at bottom */
   }
 
   .home-left {
       width: 100%;
       padding-right: 0;
-      margin-bottom: 20px;
+      margin-bottom: 0;
       align-items: flex-start;
       text-align: left;
   }
@@ -233,52 +233,57 @@ nav ul.nav-links li a:hover {
       margin-bottom: 20px;
   }
 
+  /* Hide desktop image on mobile */
+  .home-right-desktop {
+      display: none;
+  }
+
+  /* Show and style the wrapper for social links and mobile image */
+  .social-mobile-flex-wrapper {
+      display: flex; /* Make this a flex container */
+      align-items: flex-start; /* Align items to the top (WhatsApp icon's top) */
+      gap: 20px; /* Space between social links and image */
+      width: 100%; /* Take full width of home-left */
+      margin-top: 15px; /* Space below the download CV button */
+  }
+
   .social-links {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 15px;
-      margin-top: 15px;
+      flex-shrink: 0; /* Prevent social links from shrinking */
+      /* No need to redefine flex-direction: column; as it's global for .social-links */
   }
 
-  .home-right {
-      position: absolute; /* Re-apply absolute positioning for mobile */
-      bottom: 0; /* Align to the bottom of home-section */
-      right: 20px; /* Position from the right edge */
-      width: 45%; /* Size on mobile */
-      max-width: 180px; /* Max size on mobile */
-      transform: translateY(-50%); /* Crucial: Translate up by 50% of its own height to center it vertically relative to its bottom anchor */
-      z-index: 0; /* Ensure image is behind text */
-      /* No need for justify-content/align-items here if image fills home-right */
+  /* Mobile image container */
+  .home-image-mobile {
+      display: block; /* Show on mobile */
+      width: 70%; /* Adjust image width */
+      height: auto; /* Adjust image height to maintain aspect ratio/fit icons */
+      flex-shrink: 0; /* Prevent image from shrinking */
+      margin-top: 5%; /* Adjust vertically to align with WhatsApp icon's top */
+      margin-left: 15%;
   }
 
-  .home-right img {
-      /* Styles already set in desktop .home-right img will apply,
-         but ensure max-height is controlled if needed for aspect ratio */
-      max-height: 100%; /* Ensures image doesn't get too tall */
+  .home-image-mobile img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Crop to fill the square */
+      border-radius: 2%; /* Maintain square/rounded corners */
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   }
 }
 
 @media (max-width: 480px) {
-  .home-section {
-      padding-bottom: 160px; /* Adjust for smaller screens */
-  }
-
   .home-left h1 {
       font-size: 2rem;
   }
 
-  .social-links {
-      gap: 10px;
+  .social-mobile-flex-wrapper {
+      gap: 15px; /* Slightly smaller gap for very small screens */
   }
 
-  .home-right {
-      width: 55%; /* Adjust width for very small screens */
-      max-width: 130px; /* Smaller max-width for image */
-      right: 15px; /* Fine-tune position for smaller screens */
-      transform: translateY(-40%); /* Adjust float slightly up for very small screens */
-  }
-  .home-right img {
-      max-height: 120px; /* Smaller max-height for image */
+  .home-image-mobile {
+      width: 100px; /* Further reduce image size */
+      height: 100px;
+      margin-top: -3px; /* Fine-tune for smaller screens */
   }
 }
 
@@ -433,7 +438,7 @@ overflow: hidden;
 .skill-level {
 height: 100%;
 width: 0;
-background: #3b82f6;
+background: #333;
 border-radius: 10px;
 transition: width 1.5s ease-in-out;
 }
@@ -502,7 +507,7 @@ transition: width 1.5s ease-in-out;
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 30px;
   max-width: 900px;
   margin: 0 auto;
@@ -543,24 +548,29 @@ transition: width 1.5s ease-in-out;
 }
 
 /* ===================
-   Contact Section (Remain unchanged)
+   Contact Section (UPDATED)
 =================== */
 
 .contact {
   max-width: 900px;
   margin: 60px auto 80px;
   padding: 0 20px;
+  display: flex; /* Make the contact section a flex container */
+  flex-direction: column; /* Stack children vertically */
+  align-items: center; /* Center horizontally */
 }
 
 .contact h2 {
   font-size: 2.8rem;
   text-align: center;
   margin-bottom: 40px;
+  width: 100%; /* Ensure it takes full width of its container */
 }
 
 .contact__container {
   display: flex;
   justify-content: center;
+  width: 100%; /* Ensure it takes full width within the .contact flex container */
 }
 
 form {
