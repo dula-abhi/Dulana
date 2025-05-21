@@ -209,7 +209,7 @@ nav ul.nav-links li a:hover {
 @media (max-width: 768px) {
   .home-section {
       flex-direction: column; /* Stack main sections vertically */
-      align-items: center; /* Center content horizontally on mobile */
+      align-items: flex-start; /* Align content to the left */
       padding: 40px 20px;
       min-height: auto;
       height: auto;
@@ -219,9 +219,9 @@ nav ul.nav-links li a:hover {
   .home-left {
       width: 100%; /* Take full width */
       padding-right: 0;
-      margin-bottom: 0;
-      align-items: center; /* Center its own children like H1 and Button */
-      text-align: center; /* Center text */
+      margin-bottom: 0; /* Let flex wrapper control spacing */
+      align-items: flex-start; /* Keep text/button left aligned */
+      text-align: left; /* Keep text left aligned */
   }
 
   .home-left h1 {
@@ -238,11 +238,10 @@ nav ul.nav-links li a:hover {
       display: none;
   }
 
-  /* Make the wrapper for social links and mobile image a column stack now */
+  /* Make the wrapper for social links and mobile image a flex container */
   .social-mobile-flex-wrapper {
-      display: flex;
-      flex-direction: column; /* STACK VERTICALLY */
-      align-items: center; /* Center items within this wrapper */
+      display: flex; /* This is key for side-by-side */
+      align-items: flex-start; /* Align contents to their top edge (WhatsApp icon top) */
       gap: 20px; /* Space between social links column and image */
       width: 100%;
       margin-top: 15px; /* Space below the download CV button */
@@ -250,29 +249,30 @@ nav ul.nav-links li a:hover {
 
   /* Social links column */
   .social-links {
-      flex-shrink: 0;
+      flex-shrink: 0; /* Prevent it from shrinking */
       margin-top: 0; /* Remove previous margin */
-      align-items: center; /* Center social icons themselves */
+      /* Keep align-items: flex-start if you want icons to be left-aligned within their column */
   }
 
   /* Mobile image container - SHOW AND SIZE FOR LARGE USING VW */
   .home-image-mobile {
       display: block; /* Show on mobile */
-      width: 95vw; /* NEW: Use 95% of viewport width */
-      height: 95vw; /* NEW: Keep it square using 95% of viewport width */
-      max-width: 480px; /* Set a maximum size to prevent it from getting too big on larger tablets in portrait */
-      max-height: 480px; /* Keep it square */
+      width: 98vw; /* NEW: Use 98% of viewport width */
+      height: 98vw; /* NEW: Keep it square using 98% of viewport width */
+      max-width: 550px; /* NEW: Increased max-width cap for larger tablets */
+      max-height: 550px; /* Keep it square */
       flex-shrink: 0;
-      margin-top: 0;
-      margin-left: auto;
-      margin-right: auto;
+      /* Adjust vertical position for perfect alignment, if needed. */
+      /* A small negative margin can compensate for line-height or implicit padding. */
+      margin-top: -10px; /* Increased negative margin for better alignment with larger image */
+      margin-left: auto; /* Push it to the right if there's available space */
   }
 
   .home-image-mobile img {
       width: 100%;
       height: 100%;
       object-fit: cover; /* Crop to fill the square space */
-      border-radius: 2%;
+      border-radius: 2%; /* Keep it square or slightly rounded */
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   }
 }
@@ -288,10 +288,11 @@ nav ul.nav-links li a:hover {
 
   /* Adjust image size for smaller screens to prevent overflow, but still using vw */
   .home-image-mobile {
-      width: 90vw; /* Slightly less for very small screens to ensure some padding */
-      height: 90vw;
-      max-width: 350px; /* A tighter max-width for very small phones */
-      max-height: 350px;
+      width: 95vw; /* Increased from 90vw for very small screens */
+      height: 95vw;
+      max-width: 380px; /* NEW: Increased max-width for very small phones */
+      max-height: 380px;
+      margin-top: -8px; /* Adjusted margin for smaller screens */
   }
 
    .social-links a {
