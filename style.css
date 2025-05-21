@@ -255,11 +255,11 @@ nav ul.nav-links li a:hover {
   /* Mobile image container */
   .home-image-mobile {
       display: block; /* Show on mobile */
-      width: 70%; /* Adjust image width */
-      height: auto; /* Adjust image height to maintain aspect ratio/fit icons */
+      width: 100%; /* Adjust image width */
+      height: 100%; /* Adjust image height to maintain aspect ratio/fit icons */
       flex-shrink: 0; /* Prevent image from shrinking */
       margin-top: 5%; /* Adjust vertically to align with WhatsApp icon's top */
-      margin-left: 15%;
+      margin-left: ;
   }
 
   .home-image-mobile img {
