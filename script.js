@@ -41,7 +41,7 @@ function animateSkillsOnScroll() {
 window.addEventListener('scroll', animateSkillsOnScroll);
 
 
-// contactc //
+// Contact section fade-in
 const contactSection = document.querySelector('.contact'); // Changed selector to .contact
 
 function animateContactOnScroll() {
@@ -53,3 +53,10 @@ function animateContactOnScroll() {
 }
 
 window.addEventListener('scroll', animateContactOnScroll);
+
+// Project Card "View More" link - prevent default behavior
+document.querySelectorAll('.view-more-link').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault(); // Prevent default link behavior (jumping to top)
+    });
+});

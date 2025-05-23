@@ -1,5 +1,5 @@
 /* ===================
-   Global Styles (Remain unchanged)
+   Global Styles
 =================== */
 
 * {
@@ -16,7 +16,7 @@ body {
 }
 
 /* ===================
- Navigation Bar (Remain unchanged)
+ Navigation Bar
 =================== */
 
 nav {
@@ -56,12 +56,16 @@ nav ul.nav-links li a {
   transition: background 0.3s ease;
 }
 
-nav ul.nav-links li a:hover {
+nav ul.nav-links li a:hover,
+nav ul.nav-links li a:focus { /* Added :focus for accessibility */
   background: #555;
   border-radius: 4px;
+  outline: 2px solid white; /* Example focus style */
+  outline-offset: 2px;
 }
 
-/* Hamburger Menu (Remain unchanged) */
+
+/* Hamburger Menu */
 
 .hamburger {
   display: none;
@@ -77,7 +81,7 @@ nav ul.nav-links li a:hover {
   border-radius: 2px;
 }
 
-/* Responsive nav (Remain unchanged) */
+/* Responsive nav */
 
 @media (max-width: 768px) {
   nav ul.nav-links {
@@ -154,8 +158,11 @@ nav ul.nav-links li a:hover {
   margin-bottom: 25px;
 }
 
-.home-left .btn:hover {
+.home-left .btn:hover,
+.home-left .btn:focus { /* Added :focus for accessibility */
   background: #005582;
+  outline: 2px solid #005582; /* Example focus style */
+  outline-offset: 2px;
 }
 
 /* Social links container - always column display */
@@ -173,9 +180,12 @@ nav ul.nav-links li a:hover {
   transition: color 0.3s ease;
 }
 
-.social-links a:hover {
+.social-links a:hover,
+.social-links a:focus { /* Added :focus for accessibility */
   color: #005583;
+  outline: none; /* Often focus styles are not needed if color change is enough for icons */
 }
+
 
 /* Desktop Image container - only visible on desktop */
 .home-right-desktop {
@@ -204,7 +214,7 @@ nav ul.nav-links li a:hover {
 }
 
 /* ===================
- Home Section Responsive Styles (UPDATED FOR LARGER MOBILE IMAGE USING VW UNITS)
+ Home Section Responsive Styles
 =================== */
 @media (max-width: 768px) {
   .home-section {
@@ -302,7 +312,7 @@ nav ul.nav-links li a:hover {
 
 
 /* ===================
- About Section (Remain unchanged)
+ About Section
 =================== */
 
 .about-section {
@@ -356,8 +366,11 @@ nav ul.nav-links li a:hover {
   margin-bottom: 20px;
 }
 
-.about-text .btn:hover {
+.about-text .btn:hover,
+.about-text .btn:focus { /* Added :focus for accessibility */
   background: #005582;
+  outline: 2px solid #005582;
+  outline-offset: 2px;
 }
 
 .about-text .social-links {
@@ -371,12 +384,41 @@ nav ul.nav-links li a:hover {
   transition: color 0.3s ease;
 }
 
-.about-text .social-links a:hover {
+.about-text .social-links a:hover,
+.about-text .social-links a:focus { /* Added :focus for accessibility */
   color: #005582;
+  outline: none;
 }
 
+/* --- Mobile Specific Styles for About Section --- */
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column; /* Stack image and text vertically */
+  }
+
+  .profile-pic {
+    margin-bottom: 20px; /* Add some space between image and text */
+  }
+
+  .about-text {
+    text-align: center; /* Center align all text within about-text */
+    padding: 0 10px; /* Add some horizontal padding to prevent text from touching edges */
+  }
+
+  /* To center the button and social links, if they are display: block or inline-block */
+  .about-text .btn {
+    display: block; /* Make button a block element */
+    margin: 0 auto 20px auto; /* Center it horizontally */
+  }
+
+  .about-text .social-links {
+    justify-content: center; /* Center the social icons */
+  }
+}
+
+
 /* ===================
- Skills Section (Remain unchanged)
+ Skills Section
 =================== */
 .skills-section {
 padding: 60px 20px;
@@ -459,9 +501,8 @@ transition: width 1.5s ease-in-out;
 
 
 /* ===================
-   Certificates Section (Commented out)
+   Certificates Section (Commented out in HTML and CSS)
 =================== */
-/* This section is commented out in HTML, so its CSS is also commented out */
 /*
 .certificates-section {
   max-width: 900px;
@@ -504,7 +545,7 @@ transition: width 1.5s ease-in-out;
 */
 
 /* ===================
-   Projects Section (Remain unchanged)
+   Projects Section
 =================== */
 
 .projects-section {
@@ -522,21 +563,31 @@ transition: width 1.5s ease-in-out;
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
+  gap: 40px; /* Space between cards */
   max-width: 900px;
   margin: 0 auto;
 }
 
 .project-card {
   background: white;
+  margin: 20px;
   padding: 25px;
   border-radius: 12px;
   box-shadow: 0 4px 8px rgb(0 0 0 / 0.1);
-  transition: transform 0.3s ease;
+  position: relative; /* Essential for absolute positioning of inner elements */
+  overflow: hidden; /* Hide content that slides out/in */
+  height: 170px; /* Fixed height for initial state, adjust as needed */
+  display: flex; /* Flex for main content alignment */
+  flex-direction: column;
+  justify-content: space-between; /* Pushes content down */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, height 0.3s ease; /* Added height transition */
 }
 
+/* Hover state for the entire card */
 .project-card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-8px); /* Lifts the card slightly */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  height: 250px; /* New height when expanded, adjust to fit content */
 }
 
 .project-card h3 {
@@ -548,21 +599,97 @@ transition: width 1.5s ease-in-out;
   font-size: 1rem;
   margin-bottom: 20px;
   color: #555;
+  flex-grow: 1;
 }
 
-.project-card a {
+/* --- Initial content (View More) --- */
+.project-card-initial {
+  position: absolute;
+  bottom: 25px; /* Adjust based on your padding */
+  left: 25px; /* Adjust based on your padding */
+  right: 25px; /* Adjust based on your padding */
+  text-align: center; /* Center the link */
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  z-index: 2; /* Ensure it's above hover content initially */
+}
+
+.view-more-link {
+  display: inline-block; /* Allows padding and margin */
   text-decoration: none;
   font-weight: 600;
   color: #0077b5;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, transform 0.3s ease;
+  padding: 8px 15px; /* Make it look like a button */
+  border: 1px solid #0077b5;
+  border-radius: 5px;
 }
 
-.project-card a:hover {
-  color: #005582;
+.view-more-link:hover,
+.view-more-link:focus {
+  color: white;
+  background-color: #0077b5;
+  outline: 2px solid #0077b5;
+  outline-offset: 2px;
 }
+
+/* --- Hover content (Code, Live Demo links) --- */
+.project-card-hover-content {
+  position: absolute;
+  bottom: 25px; /* Align with initial content's bottom */
+  left: 25px;
+  right: 25px;
+  opacity: 0; /* Hidden by default */
+  transform: translateY(100%); /* Start off-screen below */
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  z-index: 1; /* Below initial content initially */
+}
+
+.project-links {
+  display: flex;
+  flex-direction: column; /* Stack links vertically in the expanded state */
+  gap: 10px; /* Space between the two links */
+  align-items: center; /* Center links horizontally */
+  justify-content: center;
+}
+
+.project-links a {
+  text-decoration: none;
+  font-weight: 600;
+  color: #0077b5;
+  transition: color 0.3s ease, background-color 0.3s ease;
+  padding: 10px 20px; /* Button-like styling */
+  border: 1px solid #0077b5;
+  border-radius: 5px;
+  width: 100%; /* Take full width of parent */
+  text-align: center;
+  white-space: nowrap; /* Prevent link text from breaking */
+  max-width: 200px; /* Cap width for better appearance */
+}
+
+.project-links a:hover,
+.project-links a:focus {
+  color: white;
+  background-color: #0077b5;
+  outline: 2px solid #0077b5;
+  outline-offset: 2px;
+}
+
+
+/* --- Hover interactions --- */
+.project-card:hover .project-card-initial {
+  transform: translateY(-100%); /* Slide initial content up and out */
+  opacity: 0; /* Fade out initial content */
+  pointer-events: none; /* Prevent clicking on hidden element */
+}
+
+.project-card:hover .project-card-hover-content {
+  transform: translateY(0); /* Slide hover content into view */
+  opacity: 1; /* Fade in hover content */
+}
+
 
 /* ===================
-   Contact Section (UPDATED)
+   Contact Section
 =================== */
 
 .contact {
@@ -639,9 +766,13 @@ label {
   margin: 0;
 }
 
-.contact__button:hover {
+.contact__button:hover,
+.contact__button:focus { /* Added :focus for accessibility */
   background: #005582;
+  outline: 2px solid #005582;
+  outline-offset: 2px;
 }
+
 
 /* Contact section fade-in initial state */
 .contact {
@@ -658,7 +789,7 @@ label {
 
 
 /* ===================
-   Footer (Remain unchanged)
+   Footer
 =================== */
 
 footer {
