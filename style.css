@@ -576,7 +576,7 @@ transition: width 1.5s ease-in-out;
   box-shadow: 0 4px 8px rgb(0 0 0 / 0.1);
   position: relative; /* Essential for absolute positioning of inner elements */
   overflow: hidden; /* Hide content that slides out/in */
-  height: 170px; /* Fixed height for initial state, adjust as needed */
+  height: 200px; /* Fixed height for initial state, adjust as needed */
   display: flex; /* Flex for main content alignment */
   flex-direction: column;
   justify-content: space-between; /* Pushes content down */
